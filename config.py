@@ -1,4 +1,4 @@
-token = 'NDY1MjIxODA4OkFBRnMwMHVKUUNodWNQeEwxUGxlY2pFZi1YUGR1TGtwOG0w'
+token = ' '
 
 habr = 'https://habrahabr.ru/hub/python/'
 
