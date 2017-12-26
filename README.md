@@ -4,5 +4,4 @@ if error: Heroku Error R10 (Boot timeout) -> Web process failed to bind to $PORT
 
 use:
 
-heroku scale web=0
-heroku scale worker=1
+heroku scale web=0 && heroku scale worker=1
