@@ -2,8 +2,11 @@ import requests
 from bs4 import BeautifulSoup
 import config
 
+news = []
+
+
 def habr_news():
-    news = []
+    last_news = []
     habr = requests.get(config.habr).text
     soup = BeautifulSoup(habr, 'lxml')
     div = soup.find_all('div', {'class': 'posts_list'})
@@ -14,4 +17,11 @@ def habr_news():
             for link in links:
                 link = link.get('href')
                 news.append(link)
-    return news
+    with open('last_news.txt', 'r') as file:
+        last_url = file.readline()
+    for i in news:
+        if i > last_url:
+            last_news.append(i)
+        with open('last_news.txt', 'w') as f:
+            f.write(news[0])
+    return last_news
